@@ -8,6 +8,7 @@
 <title>MemberDBJoin.jsp</title>
 <jsp:useBean id="mdto" class="model.MemberDTO"/>
 <jsp:setProperty property="*" name="mdto"/>
+<jsp:useBean id="mdao" class="model.MemberDAO"/>
 
 <%
 request.setCharacterEncoding("UTF-8");
@@ -19,10 +20,19 @@ for(int i=0;i<hobby.length;i++){
 	texthobby+=hobby[i]+" ";
 }
 
-MemberDAO mdao = new MemberDAO();
+// MemberDAO mdao = new MemberDAO();
+mdto.setHobby(texthobby);
 mdao.insetMember(mdto);
+
+//  회원 가입 정보를 보여주는 페이지로 이동
+response.sendRedirect("memberList.jsp");
+
 %>
-입력 성공~!
+
+
+
+
+
 </head>
 <body>
 
