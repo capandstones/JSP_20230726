@@ -42,6 +42,6 @@ sum : ${sum } <br>
 <c:set var="sum2" value="${sum2 = sum2+j }"/>
 </c:forEach>
 sum : ${sum2 }
-<c:
+
 </body>
 </html>
