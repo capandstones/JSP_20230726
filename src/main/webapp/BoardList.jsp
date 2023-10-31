@@ -78,13 +78,25 @@ to {
 }
 </style>
 </head>
+<c:if test="${msg==0 }">
+<script>
+alert("수정시 비밀번호가 일치하지 않습니다.")
+</script>
+</c:if>
+
+<c:if test="${msg==1 }">
+<script>
+alert("삭제시 비밀번호가 일치하지 않습니다.")
+</script>
+</c:if>
+ 
 <body>
    <div id="list">
       <b>게시판(전체글:${count })</b>
    </div>
 
    <div id="write">
-      <a href="BoardWriterForm.jsp" style="text-decoration: none">글쓰기</a>
+      <a href="BoardWriteForm.jsp" style="text-decoration: none">글쓰기</a>
    </div>
 
    <div>
@@ -113,8 +125,8 @@ to {
                      <a href="BoardInfoControl.do?num=${bean.num }" style='text-decoration: none'> ${bean.subject} </a>
                   </td>
                   <td width="100" align="center">${bean.writer }</td>
-                  <td width="150" align="center">${bean.red_date }</td>
-                  <td width="180" align="center">${bean.READCOUNT }</td>
+                  <td width="150" align="center">${bean.reg_date }</td>
+                  <td width="180" align="center">${bean.readcount }</td>
                </tr>
                <c:set var="number" value="${number-1 }" />
             </c:forEach>
